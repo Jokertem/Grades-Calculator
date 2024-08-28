@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kalkulator Ocen</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <section class="gradesTable">
+      <h2 class="table_Tittle">Oceny</h2>
+      <table class="table" border="1">
+        <tr>
+          <th>Ocena</th>
+          <th>Procent</th>
+        </tr>
+      </table>
+      <b class="tableFooter">Zeby zmienic procenty kliknij je dwa razy</b>
+    </section>
+    <section class="Calculator">
+      <h2 class="calc_Tittle">Kalkulator</h2>
+      <div class="calc">
+        <input class="calc_MaxInput" type="number" placeholder="Maks punktów" />
+        <div class="calc_studentData">
+          <input class="calc_NameInput" type="text" placeholder="Imie" />
+          <input class="calc_PointsInput" type="number" placeholder="Punkty" />
+        </div>
+        <button class="calc_count">Oblicz</button>
+        <div class="calc_equals">
+          <b class="percentInfo">Procenty</b>
+          <b class="gradeInfo">Ocena</b>
+        </div>
+        <button class="calc_add">Dodaj</button>
+      </div>
+    </section>
+    <script src="GradesTable.js"></script>
+    <script src="Calculator.js"></script>
+  </body>
+</html>
