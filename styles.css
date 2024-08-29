@@ -66,3 +66,19 @@ td {
   margin: auto;
   margin-top: 20px;
 }
+.delIcon {
+  margin-left: 10%;
+}
+.gradescont {
+  display: flex;
+  justify-content: space-around;
+  font-weight: bold;
+}
+.clear {
+  background-color: red;
+  width: 70px;
+  height: 40px;
+  display: block;
+  margin: auto;
+  margin-top: 20px;
+}

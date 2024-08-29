@@ -19,22 +19,34 @@
     </section>
     <section class="Calculator">
       <h2 class="calc_Tittle">Kalkulator</h2>
-      <div class="calc">
-        <input class="calc_MaxInput" type="number" placeholder="Maks punktów" />
-        <div class="calc_studentData">
-          <input class="calc_NameInput" type="text" placeholder="Imie" />
-          <input class="calc_PointsInput" type="number" placeholder="Punkty" />
+      <form autocomplete="off" action="">
+        <div class="calc">
+          <input
+            class="calc_MaxInput"
+            type="number"
+            placeholder="Maks punktów"
+          />
+          <div class="calc_studentData">
+            <input class="calc_NameInput" type="text" placeholder="Imie" />
+            <input
+              class="calc_PointsInput"
+              type="number"
+              placeholder="Punkty"
+            />
+          </div>
+          <button class="calc_count">Oblicz</button>
+          <div class="calc_equals">
+            <b class="percentInfo">Procenty</b>
+            <b class="gradeInfo">Ocena</b>
+          </div>
+
+          <button class="calc_add">Dodaj</button>
         </div>
-        <button class="calc_count">Oblicz</button>
-        <div class="calc_equals">
-          <b class="percentInfo">Procenty</b>
-          <b class="gradeInfo">Ocena</b>
-        </div>
-        <button class="calc_add">Dodaj</button>
-      </div>
+      </form>
     </section>
     <section class="StudentList">
       <table class="student_table" border="1"></table>
+      <button class="clear">Wyczyść</button>
     </section>
     <script src="GradesTable.js"></script>
     <script src="Calculator.js"></script>
