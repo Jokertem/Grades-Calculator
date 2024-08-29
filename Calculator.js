@@ -8,11 +8,14 @@ const AddButton = document.querySelector(".calc_add");
 const PercentInfo = document.querySelector(".percentInfo");
 const GradeInfo = document.querySelector(".gradeInfo");
 
+const StudentList = [];
+
 let maxValue = 10;
 let nameValue = "Unknow";
 let pointsValue = 10;
 
 let percentValue = 0;
+let gradeValue = 6;
 const SetMax = (e) => {
   maxValue = e.target.value;
 };
@@ -26,38 +29,58 @@ MaxPoints.addEventListener("change", SetMax);
 Name.addEventListener("change", SetName);
 Points.addEventListener("change", SetPoints);
 
-CountButton.addEventListener("click", () => {
+const Count = () => {
+  if (maxValue <= 0) {
+    alert("Maksymalne punkty nie mogą być równe ani mniejsze od zera");
+    return;
+  }
   percentValue = (pointsValue * 100) / maxValue;
-  percentValue = Math.floor(percentValue);
+  percentValue = Math.round(percentValue);
   PercentInfo.innerText = `Proceny:${percentValue}`;
   if (percentValue >= GradesArray[0].Percent) {
-    GradeInfo.innerText = "Ocena:6";
+    gradeValue = 6;
+    GradeInfo.innerText = `Ocena${gradeValue}`;
   }
   if (
     percentValue < GradesArray[0].Percent &&
     percentValue >= GradesArray[1].Percent
   ) {
-    GradeInfo.innerText = "Ocena:5";
+    gradeValue = 5;
+    GradeInfo.innerText = `Ocena${gradeValue}`;
   }
   if (
     percentValue < GradesArray[1].Percent &&
     percentValue >= GradesArray[2].Percent
   ) {
-    GradeInfo.innerText = "Ocena:4";
+    gradeValue = 4;
+    GradeInfo.innerText = `Ocena${gradeValue}`;
   }
   if (
     percentValue < GradesArray[2].Percent &&
     percentValue >= GradesArray[3].Percent
   ) {
+    gradeValue = 3;
     GradeInfo.innerText = "Ocena:3";
   }
   if (
     percentValue < GradesArray[3].Percent &&
     percentValue >= GradesArray[4].Percent
   ) {
-    GradeInfo.innerText = "Ocena:2";
+    gradeValue = 2;
+    GradeInfo.innerText = `Ocena${gradeValue}`;
   }
   if (percentValue < GradesArray[4].Percent) {
-    GradeInfo.innerText = "Ocena:1";
+    gradeValue = 1;
+    GradeInfo.innerText = `Ocena${gradeValue}`;
   }
-});
+};
+CountButton.addEventListener("click", Count);
+
+const AddGrade = () => {
+  Count();
+  const student = new Student(nameValue, pointsValue, percentValue, gradeValue);
+  StudentList.push(student);
+  console.log(StudentList);
+  renderStudents();
+};
+AddButton.addEventListener("click", AddGrade);
