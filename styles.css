@@ -66,13 +66,10 @@ td {
   margin: auto;
   margin-top: 20px;
 }
-.delIcon {
-  margin-left: 10%;
-}
-.gradescont {
-  display: flex;
-  justify-content: space-around;
-  font-weight: bold;
+
+.gradescont,
+.delete {
+  margin-left: 20px;
 }
 .clear {
   background-color: red;
@@ -81,4 +78,8 @@ td {
   display: block;
   margin: auto;
   margin-top: 20px;
+}
+input {
+  background-color: white;
+  border: none;
 }

@@ -1,20 +1,20 @@
 const Table = document.querySelector(".table");
 const tableGrades = document.querySelector(".table");
 
-const GradesArray = [
+let GradesArray = [
   {
     Grade: 6,
-    Percent: 98,
+    Percent: 100,
     Edit: false,
   },
   {
     Grade: 5,
-    Percent: 86,
+    Percent: 90,
     Edit: false,
   },
   {
     Grade: 4,
-    Percent: 69,
+    Percent: 75,
     Edit: false,
   },
   {
@@ -24,11 +24,16 @@ const GradesArray = [
   },
   {
     Grade: 2,
-    Percent: 30,
+    Percent: 32,
     Edit: false,
   },
 ];
 
+let items = localStorage.getItem("grades");
+if (items) {
+  items = JSON.parse(items);
+  GradesArray = items;
+}
 const RenderTable = () => {
   tableGrades.innerHTML = "";
 
@@ -85,5 +90,6 @@ const SafeChange = (i, value) => {
     grade.Edit = false;
   });
   GradesArray[i].Percent = value;
+  localStorage.setItem("grades", JSON.stringify(GradesArray));
   RenderTable();
 };

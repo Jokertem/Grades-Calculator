@@ -10,8 +10,13 @@ const AddButton = document.querySelector(".calc_add");
 const PercentInfo = document.querySelector(".percentInfo");
 const GradeInfo = document.querySelector(".gradeInfo");
 
-const StudentList = [];
+let StudentList = [];
 
+let _items = localStorage.getItem("students");
+if (_items) {
+  _items = JSON.parse(_items);
+  StudentList = _items;
+}
 let maxValue = 10;
 let nameValue = "Unknow";
 let pointsValue = 10;
@@ -126,7 +131,7 @@ const AddGrade = (e) => {
   }
   const student = new Student(nameValue, pointsValue, percentValue, gradeValue);
   StudentList.push(student);
-  console.log(StudentList);
+  localStorage.setItem("students", JSON.stringify(StudentList));
   renderStudents();
 };
 AddButton.addEventListener("click", AddGrade);

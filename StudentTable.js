@@ -1,5 +1,5 @@
 const StudentTable = document.querySelector(".student_table");
-
+const Delete = document.querySelector(".dell");
 const clearButton = document.querySelector(".clear");
 
 const renderStudents = () => {
@@ -39,6 +39,7 @@ const renderStudents = () => {
 
     const delIcon = document.createElement("img");
     delIcon.addEventListener("click", () => DelStudent(index));
+    delIcon.classList.add("delete");
     delIcon.src = "DeleteIcon.png";
     delIcon.alt = "Delete Icon";
 
@@ -50,9 +51,11 @@ console.log(StudentList);
 
 const DelStudent = (i) => {
   StudentList.splice(i, 1);
+  localStorage.setItem("students", JSON.stringify(StudentList));
   renderStudents();
 };
 clearButton.addEventListener("click", () => {
   StudentList.length = 0;
+  localStorage.setItem("students", JSON.stringify(StudentList));
   renderStudents();
 });
